@@ -1,0 +1,47 @@
+{
+  "name": "agent-starter-node",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint \"**/*.{ts,js}\"",
+    "lint:fix": "eslint --fix \"**/*.{ts,js}\"",
+    "format": "prettier --write \"**/*.{ts,js,json,md}\"",
+    "format:check": "prettier --check \"**/*.{ts,js,json,md}\"",
+    "test": "node --test --import tsx",
+    "test:watch": "node --test --watch --import tsx",
+    "dev": "tsx src/agent.ts dev",
+    "download-files": "pnpm run build && node dist/agent.js download-files",
+    "start": "node dist/agent.js start",
+    "setup-sample-data": "tsx scripts/setup-sample-data.ts"
+  },
+  "engines": {
+    "node": ">=22.0.0",
+    "pnpm": ">=10.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.38.0",
+    "@trivago/prettier-plugin-sort-imports": "^5.2.2",
+    "@types/node": "^22.18.11",
+    "eslint": "^9.38.0",
+    "globals": "^16.4.0",
+    "jiti": "^2.6.1",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.2"
+  },
+  "dependencies": {
+    "@elastic/elasticsearch": "^8.17.1",
+    "@livekit/agents": "^1.0.11",
+    "@livekit/agents-plugin-livekit": "^1.0.11",
+    "@livekit/agents-plugin-rime": "~1.0.10",
+    "@livekit/agents-plugin-silero": "^1.0.11",
+    "@livekit/noise-cancellation-node": "^0.1.9",
+    "axios": "^1.13.2",
+    "dotenv": "^17.2.3",
+    "zod": "^3.25.76"
+  }
+}
