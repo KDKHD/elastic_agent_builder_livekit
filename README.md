@@ -127,7 +127,23 @@ This script will:
 
 **Note:** The ELSER model deployment is required for semantic search. The first run will download and deploy the model, which can take several minutes. Subsequent runs will be much faster.
 
-### 4. Build the Agent
+### 4. Configure Agent Builder Agent in Kibana
+
+Before running the agent, you need to configure an agent in Kibana's Agent Builder. The agent configuration includes prompts, tools, and workflows that define the agent's behavior and capabilities.
+
+1. **Set up the Agent Prompt**: Configure your agent's instructions and personality using the prompt template in [`prompt/voice_agent_prompt.md`](prompt/voice_agent_prompt.md). This defines how the agent introduces itself, its tone, and response guidelines.
+
+2. **Configure Tools**: Add the necessary tools to your agent. Example tool configurations are available in the [`tools/`](tools/) directory:
+   - [`tools/product_search.md`](tools/product_search.md) - ES|QL query for searching the product catalog
+   - [`tools/knowledgebase_search.md`](tools/knowledgebase_search.md) - ES|QL query for searching the knowledge base
+
+3. **Set up Workflows** (optional): If you need to enable handoffs or external integrations, configure workflows as shown in [`workflow/twilio_sms_workflow.md`](workflow/twilio_sms_workflow.md).
+
+In Kibana, navigate to Agent Builder and create a new agent. Use the configurations from these files to set up your agent's prompt, tools, and workflows. 
+
+**Note:** The agent ID is currently hardcoded in `src/kibanaClient.ts` as `'customer_support_voice_agent'`. Make sure your agent in Kibana uses this same ID, or update the `AGENT_ID` constant in the code to match your agent's ID.
+
+### 5. Build the Agent
 
 ```bash
 pnpm build
