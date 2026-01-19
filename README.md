@@ -56,8 +56,7 @@ This architecture allows you to leverage all of Agent Builder's capabilities (to
 - Node.js >= 22.0.0
 - pnpm >= 10.0.0
 - Elasticsearch 8.x
-- Kibana (optional, for visualization)
-- Docker (for running local server)
+- Kibana
 
 ## Setup
 
@@ -97,6 +96,8 @@ LIVEKIT_API_SECRET=secret
 **Server Credentials:**
 - For local development, use the default values shown above
 - The local server will be started in the next step
+
+Alternativly, you can run this modified version of Kibana: https://github.com/KDKHD/kibana/tree/on-week-agent-builder that contains an additonal agent mode optimised for this project (lower latency, interim tool messages, etc...). DISCLAIMER: The voice agent optimised version is not being updated with the latest Agent Builder features.
 
 ### 2. Install Dependencies
 
